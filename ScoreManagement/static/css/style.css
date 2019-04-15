@@ -1,0 +1,39 @@
+body{
+    padding-top: 70px;
+}
+
+.navbar-inverse input[type='text'] {
+    background-color: #3c3c3c;
+    border: none;
+    color: #999999;
+}
+
+.navbar-inverse .navbar-form {
+    position: relative;
+}
+
+.navbar-inverse button[type='submit'] {
+    position: absolute;
+    top: 15%;
+    right: 20px;
+    background: none;
+    border: none;
+}
+
+.navbar-inverse .glyphicon {
+    color: #999999;
+}
+
+.profile{
+    margin-right: 25px;
+}
+
+.btn-primary{
+    background-color: #843534;
+    border: none;
+}
+
+.btn-primary:hover{
+    background-color: #843534;
+    border: none;
+}

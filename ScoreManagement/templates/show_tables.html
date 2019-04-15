@@ -1,0 +1,222 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基本表</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Google Font -->
+    {#  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">#}
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="icon" href="data:;base64,=">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="shortcut icon" href="{% static 'assets/ico/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'plugins/font-awesome-4.6.3/css/font-awesome.min.css' %}">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="{% static 'plugins/ionicons-2.0.1/css/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'dist/css/AdminLTE.min.css' %}">
+    <link rel="stylesheet" href="{% static 'dist/css/skins/_all-skins.min.css' %}">
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+
+    {#    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">#}
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <script src="https://cdn.bootcss.com/datatables/1.10.16/js/jquery.dataTables.js"></script>
+    <script src="{% static 'js/echarts.js' %}"></script>
+
+</head>
+<body>
+
+<div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">学院总表</h3>
+                    <div class="btn-group pull-right ">
+                        <button id='add' class="btn btn-primary" type="button">
+                            <span class="glyphicon glyphicon-plus"></span>增加</button>
+                        <button id='change' class="btn btn-info" type="button">
+                            <span class="glyphicon glyphicon-pencil"></span>修改</button>
+                        <button id='delete' class="btn btn-success" type="button">
+                            <span class="glyphicon glyphicon-remove"></span>删除</button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <table id="car_table" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>编号</th>
+                            <th>学院名</th>
+                            <th>学院简称</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for college in college_list %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ college.name }}</td>
+                                <td>{{ college.short_name }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>编号</th>
+                            <th>学院名</th>
+                            <th>学院简称</th>
+                        </tr>
+                    </tfoot>
+                    </table>
+                </div>
+            </div>
+
+<div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">专业总表</h3>
+                    <div class="btn-group pull-right ">
+                        <button id='add' class="btn btn-primary" type="button">
+                            <span class="glyphicon glyphicon-plus"></span>增加</button>
+                        <button id='change' class="btn btn-info" type="button">
+                            <span class="glyphicon glyphicon-pencil"></span>修改</button>
+                        <button id='delete' class="btn btn-success" type="button">
+                            <span class="glyphicon glyphicon-remove"></span>删除</button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <table id="car_table" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>编号</th>
+                            <th>专业名</th>
+                            <th>专业简称</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for major in major_list %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ major.mname }}</td>
+                                <td>{{ major.short_name }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    <tfoot>
+                        <tr>
+                             <th>编号</th>
+                            <th>专业名</th>
+                            <th>专业简称</th>
+                        </tr>
+                    </tfoot>
+                    </table>
+                </div>
+            </div>
+
+<div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">专业计划总表</h3>
+                    <div class="btn-group pull-right ">
+                        <button id='add' class="btn btn-primary" type="button">
+                            <span class="glyphicon glyphicon-plus"></span>增加</button>
+                        <button id='change' class="btn btn-info" type="button">
+                            <span class="glyphicon glyphicon-pencil"></span>修改</button>
+                        <button id='delete' class="btn btn-success" type="button">
+                            <span class="glyphicon glyphicon-remove"></span>删除</button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <table id="car_table" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>编号</th>
+                            <th>学年</th>
+                            <th>专业名</th>
+                            <th>专业简称</th>
+                            <th>计划班级数</th>
+                            <th>专业计划人数</th>
+                            <th>毕业最低学分</th>
+                            <th>学制</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for mp in major_plan_list %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ mp.year }}</td>
+                                <td>{{ mp.major.mname}}</td>
+                                <td>{{ mp.major.short_name}}</td>
+                                <td>{{ mp.cls_num }}</td>
+                                <td>{{ mp.people_num }}</td>
+                                <td>{{ mp.score_grad }}</td>
+                                <td>{{ mp.stu_years }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>编号</th>
+                            <th>学年</th>
+                            <th>专业名</th>
+                            <th>专业简称</th>
+                            <th>计划班级数</th>
+                            <th>专业计划人数</th>
+                            <th>毕业最低学分</th>
+                            <th>学制</th>
+                        </tr>
+                    </tfoot>
+                    </table>
+                </div>
+            </div>
+
+<div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">行政班总表</h3>
+                    <div class="btn-group pull-right ">
+                        <button id='add' class="btn btn-primary" type="button">
+                            <span class="glyphicon glyphicon-plus"></span>增加</button>
+                        <button id='change' class="btn btn-info" type="button">
+                            <span class="glyphicon glyphicon-pencil"></span>修改</button>
+                        <button id='delete' class="btn btn-success" type="button">
+                            <span class="glyphicon glyphicon-remove"></span>删除</button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <table id="car_table" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>编号</th>
+                            <th>行政班名</th>
+                            <th>所属专业</th>
+                            <th>专业简称</th>
+                            <th>班级人数</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for adm_clss in adm_class_list %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ adm_clss.name }}</td>
+                                <td>{{ adm_clss.major.major.mname}}</td>
+                                <td>{{ adm_clss.major.major.short_name}}</td>
+                                <td>{{ adm_clss.people_num }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>编号</th>
+                            <th>行政班名</th>
+                            <th>所属专业</th>
+                            <th>专业简称</th>
+                            <th>班级人数</th>
+                        </tr>
+                    </tfoot>
+                    </table>
+                </div>
+            </div>
+
+</body>
+</html>
